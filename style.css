@@ -1,0 +1,176 @@
+body{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+header{
+    width:1280px;
+    height: 46px;
+    position: absolute;
+    top:0;
+}
+
+main{
+    width:1140px;
+}
+
+/*Day,week,month*/
+section{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category{
+    font-size: 16px;
+    height: 44px;
+}
+
+.category button{
+    width: 58px;
+    height: 44px;
+    font-size: 18px;
+    color:var(--color-black);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+#dayBtn{
+    color:#0916E0;
+}
+
+
+/*오늘의 할일은 무엇인가요?*/
+.inputBox{
+    height: 74px;
+}
+
+.inputBox input{
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    color: #595A6A;
+}
+
+/*all,active,completed*/
+.buttonBox{
+    height: 52px;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.completeButton{
+    width: 220px;
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.completeButton button{
+    font-size: 16px;
+    color: var(--color-black);
+    border:none;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+#allBtn{
+    color: var(--color-white);
+    background-color: var(--color-blue);
+}
+
+/*할일 리스트*/
+ul{
+    border:1px solid var(--color-border);
+    border-radius: 2px;
+}
+
+ul li{
+    border-bottom: 1px solid var(--color-border);
+    padding: 18px;
+    font-size: 16px;
+    color:var(--color-black);
+    display: flex;
+    align-items: center;
+}
+
+ul li:last-child{
+    border-bottom: 0px;
+}
+
+li label{
+    padding-top:4px;
+}
+
+input[type="checkbox"]{
+    display: inline-block;
+    margin:0px;
+    margin-right:10px;
+    width: 24px;
+    height: 24px;
+}
+
+
+/*mark all as complete&left*/
+.resultBox{
+    margin:8px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.allComplete{
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: var(--color-white);
+    font-size: 14px;
+}
+
+.button{
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    background-color: var(--color-white);
+}
+
+/*left mark&button*/
+.completeResult{
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.completeResult button{
+    border:1px solid var(--color-black);
+    border-radius: 2px;
+    padding: 4px;
+    background-color: var(--color-white);
+    font-size: 14px;
+}
+
+.completeResult div{
+    font-size: 16px;
+    margin:8px;
+}
+
+.completeResult span:first-child{
+    font-weight: bold;
+    color: var(--color-blue);
+}

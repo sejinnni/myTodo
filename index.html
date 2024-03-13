@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="week.html">
+    <title>TODO</title>
+</head>
+<body>
+   <header></header>
+   <main>
+    <section class="category">
+        <span class="today">2024.01.24.수요일</span>
+        <div>
+            <button id="dayBtn">Day</button>
+            <button id="weekBtn">Week</button>
+            <button id="monthBtn">Month</button>
+        </div>
+    </section>
+    <section class="inputBox">
+        <input id="submit" type="text" placeholder="오늘의 할일은 무엇인가요?">
+    </section>
+    <section class="buttonBox">
+        <div class="completeButton">
+        <button id="allBtn">All</button>
+        <button id="activeBtn">Active</button>
+        <button id="completedBtn">Completed</button>
+        </div>
+    </section>
+    <ul>
+        <!-- <li><input type="checkbox" name="JavaScript" id="JavaScript"><label for="JavaScript">JavaScript</label></li>
+        <li><input type="checkbox" name="Html" id="Html"><label for="Html">Html</label></li>
+        <li><input type="checkbox" name="Css" id="Css"><label for="Css">Css</label></li> -->
+    </ul>
+    <section class="resultBox">
+        <button class="allComplete">
+            <input type="checkbox" id="allCompleteCheckbox"/><label name="allCompleteCheckbox" for="allCompleteCheckbox">Mark all as complete</label>
+            <!-- <div class="button"></div> -->
+            <!-- <span>Mark all as complete</span> -->
+        </button>
+        <div class="completeResult">
+            <button>Clear complete</button>
+        <div>
+                <span class="leftNumber">0</span>
+                <span>items left</span>
+            </div>
+        </div>
+    </section>
+   </main>
+   <script src="./btn.js"></script>
+   <script src="./input.js"></script>
+</body>
+</html>
