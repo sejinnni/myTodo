@@ -1,8 +1,9 @@
-const todoList = [];
+let todoList = [];
 // todoList = =[{value , checked, lineThorugh}]
 const ul = document.querySelector("ul");
 const submit = document.querySelector("#submit");
 const allComplete = document.querySelector(".allComplete");
+const allCompleteCheckbox = document.querySelector('#allCompleteCheckbox');
 const clearComplete = document.querySelector(".completeResult");
 const leftNumber = document.querySelector(".leftNumber");
 const today = document.querySelector(".today");
@@ -42,12 +43,15 @@ submit.addEventListener("keypress", (event) => {
     //위로 추가되는 것
     ul.prepend(li);
     submit.value = "";
+    count +=1; 
+    leftNumber.innerText = count;
   }
   allButton.click();
 });
 
 const activeButton = document.querySelector("#activeBtn");
 const completedButton = document.querySelector("#completedBtn");
+
 
 allButton.addEventListener("click", () => {
   ul.replaceChildren();
@@ -79,8 +83,14 @@ allButton.addEventListener("click", () => {
       todoList[i].lineThrough = todoList[i].lineThrough ? "" : "line-through";
       checkbox[i].checked = todoList[i].checked;
       labels[i].style.textDecoration = todoList[i].lineThrough;
+
+      if(todoList[i].checked === true){
+        count -= 1;
+        leftNumber.innerText = count;
+      }
     });
   }
+
 });
 
 activeButton.addEventListener("click", () => {
@@ -117,6 +127,10 @@ activeButton.addEventListener("click", () => {
         ? ""
         : "line-through";
       list[i].remove();
+      if(todoList[i].checked === true){
+        count -= 1;
+        leftNumber.innerText = count;
+      }
     });
   }
 });
@@ -160,3 +174,43 @@ completedButton.addEventListener("click", () => {
     });
   }
 });
+
+
+//allcomplet가 true면, list.check = true, allcomplete가 false면, List.check = false 
+allCompleteCheckbox.addEventListener('click',()=>{
+  //console.log(1);
+  const checkbox = document.querySelectorAll('ul input[type=checkbox]');
+  const labels = document.querySelectorAll('ul label');
+  if(allCompleteCheckbox.checked === true){
+    for(let i = 0; i < todoList.length; i++){
+      todoList[i].checked = true;
+      todoList[i].lineThrough = 'line-through';
+      labels[i].style.textDecoration = 'line-through';
+      checkbox[i].checked = true; 
+    }
+    count = 0; 
+    leftNumber.innerText = count; 
+   }else{
+    for(let i = 0; i < todoList.length; i++){
+      todoList[i].checked = false;
+      todoList[i].lineThrough = '';
+      labels[i].style.textDecoration = '';
+      checkbox[i].checked = false; 
+    }
+    count = todoList.length;
+    leftNumber.innerText = count;  
+   }
+})
+
+//checkbox = true일때, clearComplete버튼을 누르면 -> todoList, list에서 삭제되어야 한다. 
+clearComplete.addEventListener('click',()=>{
+  const list = document.querySelectorAll('ul li');
+  //1.checkbox가 true인 애들을 찾는다. 
+  for(let i= 0; i<todoList.length; i++){
+    if(todoList[i].checked === true){
+      list[i].remove();
+    }
+  }
+  todoList = todoList.filter((v) => v.checked ===false);
+  allCompleteCheckbox.checked = false;
+})
